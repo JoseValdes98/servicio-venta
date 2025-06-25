@@ -2,15 +2,15 @@
 package venta.model;
 
 import jakarta.persistence.*;
-import lombok.Data; // Asumo que sigues usando Lombok
-import lombok.ToString; // Para excluir 'venta' del toString y evitar bucles en logs
+import lombok.Data; 
+import lombok.ToString;
 
-import com.fasterxml.jackson.annotation.JsonBackReference; // ¡ASEGÚRATE DE ESTA IMPORTACIÓN!
+import com.fasterxml.jackson.annotation.JsonBackReference; 
 
 @Entity
 @Table(name = "venta_detalles")
-@Data // Lombok para getters, setters, etc.
-@ToString(exclude = "venta") // Importante para evitar StackOverflowError en logs
+@Data 
+@ToString(exclude = "venta")
 public class VentaDetalle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class VentaDetalle {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venta_id", nullable = false)
     @JsonBackReference // ¡Esta anotación aquí!
-    private Venta venta; // Referencia a la Venta padre
+    private Venta venta; 
 
     @Column(name = "producto_id")
     private Long productoId;
@@ -31,10 +31,10 @@ public class VentaDetalle {
     private Integer cantidad;
     
     @Column(name = "precio_unitario")
-    private Double precioUnitario; // Precio unitario del producto CON IVA INCLUIDO
+    private Double precioUnitario; 
 
     @Column(name = "subtotal_producto")
-    private Double subtotalProducto; // Subtotal de esta línea CON IVA (precioUnitario * cantidad)
+    private Double subtotalProducto; 
 
-    // Constructor, etc. (Lombok @Data ya los maneja en general)
+   
 }

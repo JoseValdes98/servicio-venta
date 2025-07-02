@@ -7,16 +7,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import venta.model.Venta;
 import venta.model.VentaDetalle;
-// import venta.repository.VentaDetalleRepository; // Ya no es necesario si no se usa el mock explícitamente
 import venta.repository.VentaRepository;
 import venta.service.impl.VentaServiceImpl;
 
-import java.time.LocalDateTime; // Importar si se usa LocalDateTime.now()
+import java.time.LocalDateTime; 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.offset; // ¡Nueva importación para 'offset'!
-import static org.mockito.Mockito.*; // Se mantiene para verify, when, any, times
+import static org.assertj.core.api.Assertions.offset; 
+import static org.mockito.Mockito.*; 
 
 public class VentaServiceImplTest {
 

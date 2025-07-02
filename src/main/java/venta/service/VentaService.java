@@ -1,10 +1,7 @@
-// src/main/java/venta/service/VentaService.java
+
 package venta.service;
 
-// Eliminamos las importaciones de DTOs
-// import venta.dto.VentaRequestDTO;
-// import venta.dto.VentaResponseDTO;
-import venta.model.Venta; // Importamos la entidad Venta
+import venta.model.Venta; 
 
 import java.util.List;
 

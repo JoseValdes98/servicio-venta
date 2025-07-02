@@ -1,16 +1,16 @@
-// src/main/java/venta/model/Venta.java
+
 package venta.model;
 
 import jakarta.persistence.*;
-import lombok.Data; // Asumo que sigues usando Lombok
+import lombok.Data; 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonManagedReference; // ¡ASEGÚRATE DE ESTA IMPORTACIÓN!
+import com.fasterxml.jackson.annotation.JsonManagedReference; 
 
 @Entity
 @Table(name = "ventas")
-@Data // Lombok para getters, setters, etc.
+@Data 
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,14 +47,14 @@ public class Venta {
     @JsonManagedReference // ¡Esta anotación aquí!
     private List<VentaDetalle> detalles = new ArrayList<>();
 
-    // Constructor, etc. (Lombok @Data ya los maneja en general)
+ 
 
     public void addDetalle(VentaDetalle detalle) {
         if (this.detalles == null) {
             this.detalles = new ArrayList<>();
         }
         detalles.add(detalle);
-        detalle.setVenta(this); // Importante para la relación bidireccional
+        detalle.setVenta(this); 
     }
 
     public void removeDetalle(VentaDetalle detalle) {

@@ -4,7 +4,7 @@ package venta.model;
 
 import jakarta.persistence.*;
 import lombok.Data; 
-import lombok.Data; 
+ 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "ventas")
-@Data 
+
 @Data 
 public class Venta {
     @Id

@@ -1,7 +1,9 @@
 
+
 package venta.model;
 
 import jakarta.persistence.*;
+import lombok.Data; 
 import lombok.Data; 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "ventas")
+@Data 
 @Data 
 public class Venta {
     @Id
@@ -54,6 +57,7 @@ public class Venta {
             this.detalles = new ArrayList<>();
         }
         detalles.add(detalle);
+        detalle.setVenta(this); 
         detalle.setVenta(this); 
     }
 

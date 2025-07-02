@@ -1,4 +1,4 @@
-// src/main/java/venta/repository/VentaDetalleRepository.java
+
 package venta.repository;
 
 import venta.model.VentaDetalle;

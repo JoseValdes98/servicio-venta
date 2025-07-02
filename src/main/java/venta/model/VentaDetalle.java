@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString; 
 
 import com.fasterxml.jackson.annotation.JsonBackReference; 
+import com.fasterxml.jackson.annotation.JsonBackReference; 
 
 @Entity
 @Table(name = "venta_detalles")
@@ -30,6 +31,7 @@ public class VentaDetalle {
     private Integer cantidad;
     
     @Column(name = "precio_unitario")
+    private Double precioUnitario; 
     private Double precioUnitario; 
 
     @Column(name = "subtotal_producto")

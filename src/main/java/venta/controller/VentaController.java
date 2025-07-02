@@ -1,8 +1,11 @@
 
+
 package venta.controller;
 
 
 import venta.model.Venta; 
+
+
 import venta.service.VentaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,11 +36,13 @@ public class VentaController {
 
     @GetMapping("/cliente/{clienteId}")
     
+    
     public ResponseEntity<List<Venta>> listarPorCliente(@PathVariable Long clienteId) {
         return ResponseEntity.ok(ventaService.listarPorCliente(clienteId));
     }
 
     @GetMapping("/tienda/{tiendaId}")
+    
     
     public ResponseEntity<List<Venta>> listarPorTienda(@PathVariable Long tiendaId) {
         return ResponseEntity.ok(ventaService.listarPorTienda(tiendaId));

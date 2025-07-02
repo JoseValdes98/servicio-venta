@@ -7,8 +7,8 @@ import venta.repository.VentaRepository;
 import venta.service.VentaService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.math.BigDecimal; // Importar BigDecimal
-import java.math.RoundingMode; // Importar RoundingMode
+import java.math.BigDecimal; 
+import java.math.RoundingMode; 
 import java.time.LocalDateTime;
  
 import java.util.List;
@@ -39,19 +39,19 @@ public class VentaServiceImpl implements VentaService {
             if (detalle.getVenta() == null) {
                 detalle.setVenta(venta);
             }
-            // Redondear el subtotalProducto antes de sumarlo
+            
             detalle.setSubtotalProducto(round(detalle.getPrecioUnitario() * detalle.getCantidad(), 2));
             totalVentaConIvaCalculado += detalle.getSubtotalProducto();
         }
 
-        // Redondear el total de la venta antes de usarlo en cálculos posteriores
+        
         totalVentaConIvaCalculado = round(totalVentaConIvaCalculado, 2);
         venta.setTotal(totalVentaConIvaCalculado);
 
         double subtotalVentaSinIva = totalVentaConIvaCalculado / (1 + IVA_RATE);
         double impuestoVentaCalculado = totalVentaConIvaCalculado - subtotalVentaSinIva;
 
-        // Redondear el subtotal y el impuesto
+        
         venta.setSubtotal(round(subtotalVentaSinIva, 2));
         venta.setImpuesto(round(impuestoVentaCalculado, 2));
 
